@@ -42,7 +42,7 @@ export default function World() {
       <div className="wrap">
         <div className="mb-[clamp(48px,6vw,90px)] grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <Reveal><p className="eyebrow mb-7 opacity-60">02 — The World of Brilliance</p></Reveal>
+            <Reveal><p className="eyebrow mb-7 opacity-60">II · The World of Brilliance</p></Reveal>
             <h2 id="world-title" className="serif-display text-[clamp(40px,5.6vw,96px)]">
               <Lines lines={["Three beauty", <em key="c">cultures.</em>]} />
             </h2>

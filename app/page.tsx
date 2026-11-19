@@ -3,6 +3,7 @@ import Effects from "@/components/Effects";
 import Intro from "@/components/Intro";
 import Hero from "@/components/Hero";
 import Story from "@/components/Story";
+import Statement from "@/components/Statement";
 import World from "@/components/World";
 import Experiences from "@/components/Experiences";
 import Edit from "@/components/Edit";
@@ -20,6 +21,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <Story />
+        <Statement />
         <World />
         <Experiences />
         <Edit />

@@ -11,7 +11,7 @@ export default function Journeys() {
       <div className="wrap">
         <div className="mb-[clamp(50px,6vw,90px)] grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <Reveal><p className="eyebrow mb-7 text-taupe">05 — Your way in</p></Reveal>
+            <Reveal><p className="eyebrow mb-7 text-taupe">V · Your Way In</p></Reveal>
             <h2 id="jr-title" className="serif-display text-[clamp(42px,5.6vw,96px)]">
               <Lines lines={["Four ways", <>into <em>our world.</em></>]} />
             </h2>

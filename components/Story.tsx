@@ -4,7 +4,7 @@ export default function Story() {
   return (
     <section id="story" aria-labelledby="story-title" className="py-[clamp(110px,14vw,220px)]">
       <div className="wrap grid grid-cols-12 gap-x-6">
-        <Reveal className="col-span-12 mb-8"><p className="eyebrow text-taupe">01 — The House</p></Reveal>
+        <Reveal className="col-span-12 mb-8"><p className="eyebrow text-taupe">I · The House</p></Reveal>
         <h2 id="story-title" className="serif-display col-span-12 text-[clamp(42px,6.6vw,116px)] leading-[0.98]">
           <Lines lines={["Beauty is more", "than a routine.", <span key="x" className="block pl-[1.2em] italic text-charcoal">It is an experience.</span>]} />
         </h2>

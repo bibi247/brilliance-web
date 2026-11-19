@@ -7,7 +7,7 @@ export default function Experiences() {
       <div className="wrap">
         <div className="mb-[clamp(70px,9vw,140px)] grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <Reveal><p className="eyebrow mb-7 text-champagne">03 — Signature Experiences · Brilliance Salon</p></Reveal>
+            <Reveal><p className="eyebrow mb-7 text-champagne">III · Signature Experiences</p></Reveal>
             <h2 id="exp-title" className="serif-display text-[clamp(42px,6vw,104px)]">
               <Lines lines={["Four rituals,", <em key="e" className="text-champagne">by hand.</em>]} />
             </h2>

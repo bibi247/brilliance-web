@@ -9,7 +9,7 @@ export default function Contact() {
     <section id="contact" aria-labelledby="ct-title" className="bg-white py-[clamp(100px,12vw,180px)]">
       <div className="wrap grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <Reveal><p className="eyebrow mb-7 text-taupe">07 — Contact</p></Reveal>
+          <Reveal><p className="eyebrow mb-7 text-taupe">VII · Contact</p></Reveal>
           <h2 id="ct-title" className="serif-display text-[clamp(42px,5vw,84px)]">
             <Lines lines={["We would love", <>to <em>hear from you.</em></>]} />
           </h2>

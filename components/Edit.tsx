@@ -51,7 +51,7 @@ export default function Edit() {
     <section id="edit" aria-labelledby="edit-title" className="overflow-hidden bg-ivory py-[clamp(100px,12vw,180px)]">
       <div className="wrap mb-14 grid gap-10 md:grid-cols-12 md:items-end">
         <div className="md:col-span-6">
-          <Reveal><p className="eyebrow mb-7 text-taupe">04 — The Beauty Edit</p></Reveal>
+          <Reveal><p className="eyebrow mb-7 text-taupe">IV · The Beauty Edit</p></Reveal>
           <h2 id="edit-title" className="serif-display text-[clamp(42px,5.6vw,96px)]">
             <Lines lines={["Selected", <em key="e">essentials.</em>]} />
           </h2>

@@ -6,7 +6,7 @@ export default function Locations() {
     <section id="locations" aria-labelledby="loc-title" className="bg-ivory py-[clamp(100px,12vw,180px)]">
       <div className="wrap">
         <div className="mb-[clamp(56px,7vw,110px)]">
-          <Reveal><p className="eyebrow mb-7 text-taupe">06 — The Destinations</p></Reveal>
+          <Reveal><p className="eyebrow mb-7 text-taupe">VI · The Destinations</p></Reveal>
           <h2 id="loc-title" className="serif-display text-[clamp(42px,5.6vw,96px)]">
             <Lines lines={["Find us in", <em key="u">Ulaanbaatar.</em>]} />
           </h2>
