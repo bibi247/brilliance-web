@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
 const serif = Cormorant_Garamond({
@@ -9,19 +9,19 @@ const serif = Cormorant_Garamond({
   variable: "--f-serif",
   display: "swap",
 });
-const sans = Manrope({
+const sans = Inter({
   subsets: ["latin", "cyrillic", "cyrillic-ext"],
   weight: ["300", "400", "500", "600"],
   variable: "--f-sans",
   display: "swap",
 });
 
-const title = "Brilliance — A world of beauty, curated for you";
+const title = "Brilliance — A World of Beauty, Curated for You";
 const description =
-  "Германы Dr. med. Christine Schrammek, Японы Spa Treatment, Солонгосын GENEREX — дэлхийн гоо сайхны брэндүүд, салоны арчилгаа, мэргэжлийн сургалт нэг дор.";
+  "Where science meets the art of beauty. Dr. med. Christine Schrammek (Germany), Spa Treatment (Japan), GENEREX (Korea) — professional treatments, premium skincare and beauty education in Ulaanbaatar.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://brilliance-landing-hazel.vercel.app"),
+  metadataBase: new URL("https://brilliance-web-ruby.vercel.app"),
   title,
   description,
   icons: { icon: "/favicon.svg" },
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="mn" className={`${serif.variable} ${sans.variable}`}>
       <body>
-        <a href="#main" className="skip">Үндсэн агуулга руу шилжих</a>
+        <a href="#main" className="fixed left-4 -top-16 z-[200] bg-espresso px-4 py-2.5 text-ivory transition-[top] focus:top-4">Үндсэн агуулга руу шилжих</a>
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       </body>

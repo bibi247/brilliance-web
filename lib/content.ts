@@ -128,6 +128,8 @@ export const ALL_PRODUCTS = BRANDS.flatMap((b) => b.products);
 export const RITUALS = [
   {
     id: "hot-shell",
+    mood: "Warmth, slowly released.",
+    includes: ["Шил хясааг биед таатай хэмд халаана","Нүүр болон биеийн арчилгаа","Дулаан ба даралтаар тайвшрал"],
     name: "Hot Shell Healing",
     image: "/img/lifestyle-hot-shell-healing.webp",
     alt: "Халаасан хясаагаар нуруунд иллэг хийж буй нь",
@@ -135,6 +137,8 @@ export const RITUALS = [
   },
   {
     id: "asian-resort",
+    mood: "A journey without leaving the city.",
+    includes: ["Индонез, Тайландын массажны арга","Ургамлын үнэрт эмчилгээ","Биеийн арчилгаа"],
     name: "Asian Resort Healing",
     image: "/img/lifestyle-asian-resort-healing.webp",
     alt: "Нуруунд Азийн массаж хийж буй гоо засалчийн гар",
@@ -142,6 +146,8 @@ export const RITUALS = [
   },
   {
     id: "cream-bath",
+    mood: "Stillness, from crown to shoulders.",
+    includes: ["Толгой, хүзүү, мөр, нурууны массаж","Үсний арчилгаа","Бие сэтгэлийн тайвшрал"],
     name: "Cream Bath",
     image: "/img/lifestyle-cream-bath.webp",
     alt: "Cream Bath — толгойн арьс, үсний арчилгаа",
@@ -149,6 +155,8 @@ export const RITUALS = [
   },
   {
     id: "face-healing",
+    mood: "The face, gently awakened.",
+    includes: ["Spa Treatment цувралын бүтээгдэхүүн","Меридиан, энергийн цэгүүдийг өдөөх","Нүүрний иллэг"],
     name: "Face Healing",
     image: "/img/lifestyle-face-healing.webp",
     alt: "Нүүрний иллэг хийлгэж буй, чихэндээ цэцэг хавчуулсан эмэгтэй",
@@ -213,29 +221,32 @@ export const LOCATIONS = [
   {
     n: "01",
     name: "Brilliance Salon",
-    address: "Хан-Уул дүүрэг, Ханхиллс хотхон 533",
-    city: "Улаанбаатар",
+    lines: ["Khan Hills Residences, Building 533", "Khan-Uul District, Ulaanbaatar"],
+    mn: "Хан-Уул дүүрэг, Ханхиллс хотхон 533",
     phone: { label: "+976 9800 4006", href: "tel:+97698004006" },
     map: maps("Khan Hills Residences, Khan-Uul, Ulaanbaatar"),
-    image: "/img/lifestyle-hot-shell-healing.webp",
+    image: "/img/lifestyle-asian-resort-healing.webp",
+    action: { label: "Book an appointment", href: "https://salon.brilliance.mn/" },
   },
   {
     n: "02",
-    name: "Schrammek дэлгүүр",
-    address: "Хан-Уул, E-Mart 3 давхар",
-    city: "Улаанбаатар",
+    name: "Schrammek Store",
+    lines: ["E-Mart, 3rd Floor", "Khan-Uul, Ulaanbaatar"],
+    mn: "Хан-Уул, E-Mart 3 давхар",
     phone: { label: "+976 9800 4689", href: "tel:+97698004689" },
     map: maps("E-Mart Khan-Uul, Ulaanbaatar"),
     image: "/img/schrammek.jpg",
+    action: { label: "Shop Dr. med. Schrammek", href: "https://b2c.brilliance.mn/brands/schrammek" },
   },
   {
     n: "03",
-    name: "Minister Tower салбар",
-    address: "Minister Tower 406, Эрүүл мэндийн яамны замын баруун талд",
-    city: "Улаанбаатар",
+    name: "Minister Tower",
+    lines: ["Minister Tower, 4th Floor, Office 406", "Ulaanbaatar"],
+    mn: "Minister Tower 406, Эрүүл мэндийн яамны замын баруун талд",
     phone: { label: "+976 8558 0789", href: "tel:+97685580789" },
     map: maps("Minister Tower, Ulaanbaatar"),
-    image: "/img/lifestyle-lab-glassware.webp",
+    image: "/img/lifestyle-steel-tray.webp",
+    action: { label: "Partner with us", href: "https://b2b.brilliance.mn/" },
   },
 ];
 
@@ -243,3 +254,10 @@ export const HQ = {
   address: "Хан-Уул дүүрэг, 11-р хороо, Khan Hills Residences 533-102, Улаанбаатар, Монгол улс",
   map: maps("Khan Hills Residences, Khan-Uul, Ulaanbaatar"),
 };
+
+export const JOURNEYS = [
+  { n: "01", title: "Online Shopping", mn: "Онлайн дэлгүүр", steps: ["Discover products", "Explore details", "Visit the store"], text: "Дэлхийн гоо сайхны брэндүүдийн албан ёсны бүтээгдэхүүнийг онлайнаар захиалаарай.", cta: "Visit the online store", href: "https://b2c.brilliance.mn/", host: "b2c.brilliance.mn", image: "/img/lifestyle-exo-moist-essence.webp" },
+  { n: "02", title: "Salon Experience", mn: "Салон цаг захиалга", steps: ["Discover treatments", "Understand the ritual", "Book a visit"], text: "Мэргэжлийн гоо засалчаар арьс арчилгааны үйлчилгээ авах цагаа урьдчилан захиалаарай.", cta: "Book an appointment", href: "https://salon.brilliance.mn/", host: "salon.brilliance.mn", image: "/img/lifestyle-wrapping-mask.webp" },
+  { n: "03", title: "Business Partners", mn: "Харилцагч / B2B", steps: ["Professional brands", "Wholesale terms", "Send an inquiry"], text: "Салон, эмнэлэг, борлуулагчдад — мэргэжлийн бүтээгдэхүүнийг бөөний нөхцөлөөр авах хамтын ажиллагааны хүсэлт гаргаарай.", cta: "Become a partner", href: "https://b2b.brilliance.mn/", host: "b2b.brilliance.mn", image: "/img/lifestyle-steel-tray.webp" },
+  { n: "04", title: "Professional Training", mn: "Сургалт", steps: ["Professional education", "Explore programmes", "Register"], text: "Гоо засалчдад — мэргэжлийн арьс арчилгааны сургалтын мэдээлэл аваад бүртгүүлээрэй.", cta: "Explore training", href: "https://training.brilliance.mn/", host: "training.brilliance.mn", image: "/img/lifestyle-guasha-plate.webp" },
+];

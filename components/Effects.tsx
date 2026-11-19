@@ -12,36 +12,9 @@ export default function Effects() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-    // Reveal
-    const io = new IntersectionObserver(
-      (es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }),
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
-    );
-    const observe = () => document.querySelectorAll("[data-reveal]:not(.is-in)").forEach((el) => io.observe(el));
-    observe();
-    const mo = new MutationObserver(observe);
-    mo.observe(document.body, { childList: true, subtree: true });
-
-    // Parallax + back-to-top
-    const px = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"));
-    let raf = 0;
-    const tick = () => {
-      raf = 0;
-      const vh = window.innerHeight;
-      setTop(window.scrollY > vh * 1.2);
-      if (reduce) return;
-      for (const el of px) {
-        const r = el.parentElement!.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > vh) continue;
-        const speed = parseFloat(el.dataset.parallax || "0.12");
-        const off = (r.top + r.height / 2 - vh / 2) * -speed;
-        el.style.transform = `translate3d(0, ${off.toFixed(1)}px, 0) scale(1.12)`;
-      }
-    };
-    const onScroll = () => { if (!raf) raf = requestAnimationFrame(tick); };
+    const onScroll = () => setTop(window.scrollY > window.innerHeight * 1.2);
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    tick();
+    onScroll();
 
     // Cursor + magnetic (desktop, motion OK)
     const cleanups: (() => void)[] = [];
@@ -91,12 +64,9 @@ export default function Effects() {
       cleanups.push(() => window.removeEventListener("pointermove", mags));
     }
 
-    requestAnimationFrame(() => root.classList.add("is-loaded"));
 
     return () => {
-      io.disconnect(); mo.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
       cleanups.forEach((c) => c());
     };
   }, []);
@@ -105,7 +75,7 @@ export default function Effects() {
     <>
       <div ref={dot} className="cursor is-gone" aria-hidden />
       <button
-        className={`totop ${top ? "is-on" : ""}`}
+        className={`fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center border border-ivory/25 bg-espresso text-ivory transition-all duration-500 ease-lux hover:bg-charcoal ${top ? "opacity-100" : "pointer-events-none translate-y-4 opacity-0"}`}
         aria-label="Дээш буцах"
         tabIndex={top ? 0 : -1}
         onClick={() => {
