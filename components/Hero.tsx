@@ -13,7 +13,7 @@ export default function Hero() {
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section ref={ref} id="top" aria-labelledby="hero-title" className="relative h-[100svh] min-h-[640px] overflow-hidden bg-[#e9e7e4]">
+    <section ref={ref} id="top" aria-labelledby="hero-title" className="relative h-[100svh] min-h-[640px] overflow-hidden bg-espresso text-ivory">
       {/* Full-bleed campaign image */}
       <motion.div
         className="absolute inset-0"
@@ -23,21 +23,21 @@ export default function Hero() {
       >
         <motion.div className="absolute -inset-y-[6%] inset-x-0" style={reduce ? undefined : { y: imgY }}>
           <Image
-            src="/img/lifestyle-wrapping-mask.webp"
-            alt="Spa Treatment Wrapping Mask — campaign image"
+            src="/us/hero.jpg"
+            alt="Woman in warm light falling through window blinds"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[68%_30%] md:object-[70%_32%]"
+            className="object-cover object-[62%_40%] md:object-[70%_45%]"
           />
         </motion.div>
       </motion.div>
       {/* Light veil — keeps type legible, lets the image breathe */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,244,238,.1)_0%,rgba(247,244,238,.55)_30%,rgba(247,244,238,.94)_62%)] md:bg-[linear-gradient(90deg,rgba(247,244,238,.95)_0%,rgba(247,244,238,.78)_30%,rgba(247,244,238,0)_58%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(29,25,22,.35)_0%,rgba(29,25,22,.2)_35%,rgba(29,25,22,.92)_78%)] md:bg-[linear-gradient(90deg,rgba(29,25,22,.88)_0%,rgba(29,25,22,.55)_38%,rgba(29,25,22,0)_62%),linear-gradient(0deg,rgba(29,25,22,.55)_0%,rgba(29,25,22,0)_35%)]" />
 
       <motion.div style={reduce ? undefined : { y: copyY, opacity: fade }} className="wrap relative flex h-full flex-col justify-end pb-[11svh] md:pb-[12svh]">
         <motion.p
-          className="eyebrow mb-7 flex items-center gap-4 text-espresso/70"
+          className="eyebrow mb-7 flex items-center gap-4 text-champagne"
           initial={reduce ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: EASE, delay: 0.5 }}
@@ -54,12 +54,12 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: EASE, delay: 1.3 }}
           className="mt-9 max-w-[560px]"
         >
-          <p className="font-serif text-[22px] italic leading-snug">Where science meets the art of beauty.</p>
-          <p className="mt-3 max-w-[440px] text-[14.5px] text-muted">
+          <p className="font-serif text-[22px] italic leading-snug text-champagne">Where science meets the art of beauty.</p>
+          <p className="mt-3 max-w-[440px] text-[14.5px] text-ivory/70">
             Discover exceptional skincare, professional treatments, and extraordinary beauty experiences from Germany, Japan, and Korea.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <a href="#experiences" className="btn btn-dark" data-magnetic>Explore the experience</a>
+            <a href="#experiences" className="btn btn-light" data-magnetic>Explore the experience</a>
             <a href="#world" className="eyebrow link-line">Discover our world <span className="arr" aria-hidden>→</span></a>
           </div>
         </motion.div>
@@ -68,13 +68,13 @@ export default function Hero() {
       <motion.a
         href="#story"
         aria-label="Scroll to story"
-        className="absolute bottom-8 right-[clamp(20px,4.5vw,72px)] hidden flex-col items-center gap-3 text-espresso/60 md:flex"
+        className="absolute bottom-8 right-[clamp(20px,4.5vw,72px)] hidden flex-col items-center gap-3 text-ivory/60 md:flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
       >
         <span className="eyebrow text-[9px] [writing-mode:vertical-rl]">Scroll</span>
-        <span className="cue relative h-14 w-px overflow-hidden bg-espresso/15" />
+        <span className="cue relative h-14 w-px overflow-hidden bg-ivory/20" />
       </motion.a>
     </section>
   );

@@ -94,6 +94,14 @@ export default function World() {
                   </motion.span>
                 </a>
               </motion.div>
+              <motion.div
+                className="absolute -bottom-10 right-4 z-10 aspect-[4/5] w-[38%] overflow-hidden shadow-[0_30px_60px_-25px_rgba(0,0,0,.45)] md:-right-10 md:w-[34%]"
+                initial={reduce ? false : { opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: EASE, delay: 0.5 }}
+              >
+                <Image src={c.second} alt={c.secondAlt} fill sizes="(max-width: 768px) 40vw, 22vw" className="object-cover" />
+              </motion.div>
               <span className="pointer-events-none absolute -bottom-6 left-4 font-serif text-[clamp(90px,13vw,210px)] font-light italic leading-none opacity-90 mix-blend-multiply md:-left-6" style={{ color: c.theme.accent }} aria-hidden>
                 {c.numeral}
               </span>

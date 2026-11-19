@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-espresso text-ivory/70">
       <div className="relative h-[70svh] min-h-[460px]">
-        <Image src="/img/lifestyle-face-healing.webp" alt="" fill sizes="100vw" className="object-cover opacity-45" />
+        <Image src="/us/close-pebbles.jpg" alt="" fill sizes="100vw" className="object-cover opacity-60" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(41,36,31,.2),rgba(41,36,31,1))]" />
         <div className="wrap relative flex h-full flex-col items-center justify-center text-center text-ivory">
           <p className="eyebrow mb-8 text-champagne">Beauty, thoughtfully curated.</p>
@@ -68,6 +68,7 @@ export default function Footer() {
         </div>
         <p className="border-t border-ivory/12 py-8 text-[11.5px] leading-relaxed text-ivory/40">
           Brilliance-ийг Hidesan Co., Ltd. ажиллуулдаг — Dr. med. Christine Schrammek Kosmetik-ийн Монгол дахь албан ёсны дистрибьютор. © {new Date().getFullYear()} Brilliance. Бүх эрх хуулиар хамгаалагдсан.
+          <span className="mt-2 block">Atmosphere photography via Unsplash — Andras Vas, Anna Keibalo, ibnu ihza, Fidel Fernando, Zhang liven, Virginia Marinova, Samuel Regan-Asante, Francesco Liotti, 360floralflaves. Product and treatment imagery © respective brands.</span>
         </p>
       </div>
     </footer>

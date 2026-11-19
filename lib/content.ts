@@ -225,7 +225,7 @@ export const LOCATIONS = [
     mn: "Хан-Уул дүүрэг, Ханхиллс хотхон 533",
     phone: { label: "+976 9800 4006", href: "tel:+97698004006" },
     map: maps("Khan Hills Residences, Khan-Uul, Ulaanbaatar"),
-    image: "/img/lifestyle-asian-resort-healing.webp",
+    image: "/us/loc-salon.jpg",
     action: { label: "Book an appointment", href: "https://salon.brilliance.mn/" },
   },
   {
@@ -235,7 +235,7 @@ export const LOCATIONS = [
     mn: "Хан-Уул, E-Mart 3 давхар",
     phone: { label: "+976 9800 4689", href: "tel:+97698004689" },
     map: maps("E-Mart Khan-Uul, Ulaanbaatar"),
-    image: "/img/schrammek.jpg",
+    image: "/us/loc-store.jpg",
     action: { label: "Shop Dr. med. Schrammek", href: "https://b2c.brilliance.mn/brands/schrammek" },
   },
   {
@@ -245,7 +245,7 @@ export const LOCATIONS = [
     mn: "Minister Tower 406, Эрүүл мэндийн яамны замын баруун талд",
     phone: { label: "+976 8558 0789", href: "tel:+97685580789" },
     map: maps("Minister Tower, Ulaanbaatar"),
-    image: "/img/lifestyle-steel-tray.webp",
+    image: "/us/loc-office.jpg",
     action: { label: "Partner with us", href: "https://b2b.brilliance.mn/" },
   },
 ];

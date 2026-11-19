@@ -10,16 +10,16 @@ export default function Story() {
         </h2>
 
         <MaskImage
-          src="/img/lifestyle-cream-bath.webp"
-          alt="Cream Bath — толгойн арьс, үсний арчилгаа"
+          src="/us/story-facial.jpg"
+          alt="Гоо засалчийн гараар хийж буй нүүрний арчилгаа"
           sizes="(max-width: 768px) 100vw, 58vw"
           className="col-span-12 mt-[clamp(56px,7vw,110px)] aspect-[4/5] md:col-span-7 md:aspect-[5/6]"
         />
 
         <div className="col-span-12 mt-12 flex flex-col md:col-span-4 md:col-start-9 md:mt-[clamp(56px,7vw,110px)]">
           <MaskImage
-            src="/img/lifestyle-guasha-plate.webp"
-            alt="Гуаша иллэгийн хавтанг гартаа барьсан нь"
+            src="/us/texture-serum.jpg"
+            alt="Серумын бүтэц — алтлаг дусал"
             sizes="(max-width: 768px) 60vw, 28vw"
             from="right"
             className="ml-auto aspect-[3/4] w-3/5 md:w-4/5"
