@@ -1,7 +1,19 @@
 {
   "name": "brilliance-web",
   "private": true,
-  "scripts": { "dev": "next dev -p 3460", "build": "next build", "start": "next start" },
-  "dependencies": { "next": "15.5.4", "react": "19.1.1", "react-dom": "19.1.1" },
-  "devDependencies": { "typescript": "5.9.2", "@types/react": "19.1.12", "@types/node": "22.18.0" }
+  "scripts": {
+    "dev": "next dev -p 3460",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.18.0",
+    "@types/react": "19.1.12",
+    "typescript": "5.9.2"
+  }
 }
