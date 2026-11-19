@@ -136,7 +136,7 @@ export default function World() {
               </ul>
 
               <div className="mt-10 flex flex-wrap items-center gap-6">
-                <a href={c.href} target="_blank" rel="noopener noreferrer" className="btn btn-dark" style={{ backgroundColor: c.theme.ink }} data-magnetic>
+                <a href={c.href} target="_blank" rel="noopener noreferrer" className="btn btn-dark" style={{ backgroundColor: c.theme.ink, color: c.theme.bg }} data-magnetic>
                   Discover the brand <span className="arr" aria-hidden>↗</span>
                 </a>
                 {c.id === "japan" && <a href="#experiences" className="eyebrow link-line">The rituals →</a>}
