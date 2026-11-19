@@ -3,7 +3,7 @@ import Image from "next/image";
 import { animate, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Ornament from "./Ornament";
-import { Lines, Reveal } from "./motion";
+import { Lines, MaskImage, Reveal } from "./motion";
 
 // Only facts stated on the site itself.
 const FACTS = [
@@ -28,28 +28,34 @@ function Count({ to }: { to: number }) {
 
 export default function Statement() {
   return (
-    <section aria-label="Brilliance in numbers" className="relative overflow-hidden bg-[#1d1916] text-ivory">
-      <div className="absolute inset-0">
-        <Image src="/us/hero.jpg" alt="" fill sizes="100vw" className="object-cover object-[65%_40%] opacity-55" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(29,25,22,.92)_0%,rgba(29,25,22,.6)_50%,rgba(29,25,22,.25)_100%)]" />
-      </div>
-      <div className="wrap relative flex min-h-[90svh] flex-col justify-center py-28">
-        <Reveal className="text-champagne"><Ornament width={72} /></Reveal>
-        <h2 className="serif-display mt-8 max-w-[14ch] text-[clamp(44px,6.4vw,112px)] leading-[0.98]">
-          <Lines lines={["Beauty,", <em key="t" className="text-champagne">thoughtfully</em>, "curated."]} />
-        </h2>
-        <dl className="mt-20 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-champagne/20 pt-10 md:grid-cols-4">
-          {FACTS.map((f, i) => (
-            <Reveal key={f.label} delay={i * 0.08}>
-              <dt className="sr-only">{f.label}</dt>
-              <dd>
-                <span className="block font-serif text-[clamp(56px,6vw,96px)] font-light leading-none text-champagne"><Count to={f.n} /></span>
-                <span className="eyebrow mt-4 block text-[10px] text-ivory">{f.label}</span>
-                <span className="mt-1.5 block text-[12.5px] text-ivory/55">{f.sub}</span>
-              </dd>
-            </Reveal>
-          ))}
-        </dl>
+    <section aria-label="Brilliance in numbers" className="relative overflow-hidden bg-sage py-[clamp(90px,11vw,160px)]">
+      <div className="wrap grid items-center gap-14 md:grid-cols-12">
+        <div className="md:col-span-7">
+          <Reveal className="text-sage-deep"><Ornament width={72} /></Reveal>
+          <h2 className="serif-display mt-8 text-[clamp(44px,6vw,104px)] leading-[0.98]">
+            <Lines lines={["Beauty,", <em key="t" className="text-sage-deep">thoughtfully</em>, "curated."]} />
+          </h2>
+          <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-sage-deep/25 pt-10">
+            {FACTS.map((f, i) => (
+              <Reveal key={f.label} delay={i * 0.08}>
+                <dt className="sr-only">{f.label}</dt>
+                <dd>
+                  <span className="block font-serif text-[clamp(56px,5vw,84px)] font-light leading-none text-sage-deep"><Count to={f.n} /></span>
+                  <span className="eyebrow mt-3 block text-[10px]">{f.label}</span>
+                  <span className="mt-1 block text-[12.5px] text-muted">{f.sub}</span>
+                </dd>
+              </Reveal>
+            ))}
+          </dl>
+        </div>
+        <div className="relative md:col-span-5">
+          <MaskImage src="/us/texture-serum.jpg" alt="Серумын бүтэц" sizes="(max-width: 768px) 90vw, 38vw" className="aspect-[4/5] rounded-t-[999px]" />
+          <div className="absolute -bottom-8 -left-8 hidden w-[42%] bg-white p-3 shadow-[0_24px_50px_-24px_rgba(58,44,46,.35)] md:block">
+            <span className="relative block aspect-square"><Image src="/img/exo-booster.webp" alt="EXO Booster 25/50" fill sizes="200px" className="object-contain" /></span>
+            <span className="eyebrow mt-2 block text-[8.5px] text-rose">Spa Treatment</span>
+            <span className="block font-serif text-[15px]">EXO Booster 25/50</span>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -48,7 +48,7 @@ export const CULTURES: Culture[] = [
     menuImage: "/img/schrammek.jpg",
     logo: schrammek.logo,
     href: schrammek.href,
-    theme: { bg: "#FFFFFF", ink: "#29241F", accent: "#5E6B55", soft: "#F2F1EC" },
+    theme: { bg: "#E8F0E4", ink: "#2F3A2E", accent: "#557553", soft: "#D6E5D0" },
   },
   {
     id: "japan",
@@ -67,7 +67,7 @@ export const CULTURES: Culture[] = [
     menuImage: "/img/lifestyle-exo-moist-essence.webp",
     logo: spa.logo,
     href: spa.href,
-    theme: { bg: "#EFE6DA", ink: "#29241F", accent: "#8A6E57", soft: "#E6DBCC" },
+    theme: { bg: "#FAE6E2", ink: "#3A2C2E", accent: "#B8605C", soft: "#F2CFC9" },
   },
   {
     id: "korea",
@@ -90,6 +90,6 @@ export const CULTURES: Culture[] = [
     menuImage: "/img/lifestyle-lab-glassware.webp",
     logo: generex.logo,
     href: generex.href,
-    theme: { bg: "#E9ECEC", ink: "#22282A", accent: "#56666B", soft: "#DDE2E2" },
+    theme: { bg: "#EAF2F1", ink: "#23302F", accent: "#4F7471", soft: "#D3E4E2" },
   },
 ];

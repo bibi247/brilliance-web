@@ -9,7 +9,7 @@ export default function Intro() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-[100] grid place-items-center bg-espresso text-ivory"
+      className="pointer-events-none fixed inset-0 z-[100] grid place-items-center bg-blush text-rose"
       initial={{ clipPath: "inset(0 0 0% 0)" }}
       animate={{ clipPath: "inset(0 0 100% 0)" }}
       transition={{ duration: 1.1, ease: EASE, delay: 0.9 }}

@@ -56,7 +56,7 @@ export default function Nav() {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-[background-color,transform,box-shadow] duration-700 ease-lux
           ${lifted && !open ? "bg-ivory/95 shadow-[0_1px_0_var(--color-line)] backdrop-blur-md" : ""}
-          ${hidden && !mega && !open ? "-translate-y-full" : ""} ${open || !lifted ? "text-ivory" : "text-espresso"}`}
+          ${hidden && !mega && !open ? "-translate-y-full" : ""} ${open ? "text-ivory" : "text-espresso"}`}
       >
         <div className={`wrap flex items-center gap-10 transition-[height] duration-700 ease-lux ${solid ? "h-16" : "h-20 lg:h-24"}`}>
           <a href="#top" className="wordmark mr-auto flex flex-col gap-1.5" aria-label="Brilliance — home">

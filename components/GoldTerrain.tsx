@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
  * Classic treatment: fine line mesh, espresso fog, very slow drift. Pauses off-screen;
  * renders one still frame under prefers-reduced-motion; CSS backdrop remains if WebGL fails.
  */
-export default function GoldTerrain({ className = "" }: { className?: string }) {
+export default function GoldTerrain({ className = "", color = 0xd8c9b4, fog = 0x1d1916, opacity = 0.34 }: { className?: string; color?: number; fog?: number; opacity?: number }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function GoldTerrain({ className = "" }: { className?: string }) 
       renderer.setClearColor(0x000000, 0);
 
       const scene = new THREE.Scene();
-      scene.fog = new THREE.FogExp2(0x1d1916, 0.034);
+      scene.fog = new THREE.FogExp2(fog, 0.034);
       const camera = new THREE.PerspectiveCamera(small ? 70 : 58, 1, 0.1, 200);
       camera.position.set(0, 3.1, 7);
       camera.lookAt(0, 1.2, -40);
@@ -52,7 +52,7 @@ export default function GoldTerrain({ className = "" }: { className?: string }) 
         return dunes + swell * (0.45 + edge * 1.4);
       };
 
-      const material = new THREE.MeshBasicMaterial({ color: 0xd8c9b4, wireframe: true, transparent: true, opacity: 0.34 });
+      const material = new THREE.MeshBasicMaterial({ color, wireframe: true, transparent: true, opacity });
       const make = () => {
         const g = new THREE.PlaneGeometry(W, L, SEGX, SEGZ);
         g.rotateX(-Math.PI / 2);

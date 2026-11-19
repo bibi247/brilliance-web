@@ -75,7 +75,7 @@ export default function Effects() {
     <>
       <div ref={dot} className="cursor is-gone" aria-hidden />
       <button
-        className={`fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center border border-ivory/25 bg-espresso text-ivory transition-all duration-500 ease-lux hover:bg-charcoal ${top ? "opacity-100" : "pointer-events-none translate-y-4 opacity-0"}`}
+        className={`fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center bg-rose text-white transition-all duration-500 ease-lux hover:bg-charcoal ${top ? "opacity-100" : "pointer-events-none translate-y-4 opacity-0"}`}
         aria-label="Дээш буцах"
         tabIndex={top ? 0 : -1}
         onClick={() => {

@@ -1,76 +1,92 @@
 "use client";
+import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import GoldTerrain from "./GoldTerrain";
 import Ornament from "./Ornament";
 import { EASE, Lines } from "./motion";
 
+const FLOATERS = [
+  { src: "/img/blemish-balm-light.webp", name: "Blemish Balm", brand: "Dr. med. Schrammek", pos: "left-[-6%] bottom-[8%] md:left-[-16%]", delay: 1.5, drift: [0, -10] },
+  { src: "/img/cellular-rejuvenation-enriched-cream.webp", name: "Cellular Rejuvenation Cream", brand: "GENEREX", pos: "right-[-4%] top-[10%] md:right-[-12%]", delay: 1.7, drift: [0, 12] },
+];
+
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const copyY = useTransform(scrollYProgress, [0, 1], ["0%", "-22%"]);
-  const fade = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const sunY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const copyY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
 
   const fadeIn = (delay: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 14 },
+    initial: reduce ? false : { opacity: 0, y: 16 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 1.4, ease: EASE, delay },
+    transition: { duration: 1.3, ease: EASE, delay },
   });
 
   return (
-    <section ref={ref} id="top" aria-labelledby="hero-title" className="relative h-[100svh] min-h-[680px] overflow-hidden bg-[#1d1916] text-ivory">
-      {/* Sky: warm night gradient + a soft champagne "sun" engraved with fine lines */}
-      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(120%_70%_at_50%_58%,#3a2f27_0%,#241e1a_45%,#1d1916_75%)]" />
-      <motion.div
-        aria-hidden
-        style={reduce ? undefined : { y: sunY }}
-        className="absolute left-1/2 top-[50%] aspect-square w-[min(74vw,620px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_50%_40%,rgba(232,214,186,.55),rgba(216,201,180,.16)_48%,rgba(216,201,180,0)_70%)] [mask-image:repeating-linear-gradient(180deg,#000_0_2px,rgba(0,0,0,.55)_2px_5px)]"
-        initial={reduce ? false : { opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 3, ease: EASE, delay: 0.6 }}
-      />
-      <GoldTerrain className="absolute inset-x-0 bottom-0 h-[62%] w-full" />
-      <div aria-hidden className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#1d1916] to-transparent" />
-      {/* Classic frame */}
-      <div aria-hidden className="pointer-events-none absolute inset-3 border border-champagne/15 md:inset-6">
-        <div className="absolute inset-1.5 border border-champagne/10" />
+    <section ref={ref} id="top" aria-labelledby="hero-title" className="relative overflow-hidden bg-[linear-gradient(160deg,#fdf3f1_0%,#f9e3df_55%,#f3dcd6_100%)] pt-28 md:min-h-[100svh] md:pt-0">
+      <div aria-hidden className="absolute -left-[15%] top-[30%] h-[60vw] w-[60vw] rounded-full bg-[radial-gradient(circle,rgba(202,220,196,.75),rgba(202,220,196,0)_65%)]" />
+      <div aria-hidden className="absolute -right-[10%] -top-[20%] h-[50vw] w-[50vw] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,.9),rgba(255,255,255,0)_65%)]" />
+      <GoldTerrain className="absolute inset-x-0 bottom-0 h-[45%] w-full" color={0xc4706c} fog={0xf6dcd7} opacity={0.22} />
+
+      <div className="wrap relative grid items-center gap-y-16 pb-24 md:min-h-[100svh] md:grid-cols-12 md:gap-x-6 md:pb-0">
+        <motion.div style={reduce ? undefined : { y: copyY }} className="md:col-span-6 md:pt-16">
+          <motion.div {...fadeIn(0.9)} className="flex items-center gap-4 text-rose">
+            <Ornament width={56} />
+            <span className="eyebrow text-[10px]">Skincare · Salon · Beauty</span>
+          </motion.div>
+          <h1 id="hero-title" className="serif-display mt-7 text-[clamp(48px,6.6vw,112px)] leading-[0.95]">
+            <Lines immediate delay={1} lines={["A world", <>of <em className="text-rose">beauty.</em></>, <em key="c" className="text-sage-deep">Curated for you.</em>]} />
+          </h1>
+          <motion.p {...fadeIn(1.5)} className="mt-8 font-serif text-[clamp(20px,1.7vw,25px)] italic text-charcoal">
+            Where science meets the art of beauty.
+          </motion.p>
+          <motion.p {...fadeIn(1.6)} className="mt-3 max-w-[460px] text-[15px] leading-relaxed text-muted">
+            Германы, Японы, Солонгосын арьс арчилгааны албан ёсны бүтээгдэхүүн, мэргэжлийн салон арчилгаа — нэг дор.
+          </motion.p>
+          <motion.div {...fadeIn(1.8)} className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-4">
+            <a href="https://b2c.brilliance.mn/" target="_blank" rel="noopener noreferrer" className="btn btn-dark" data-magnetic>Shop skincare</a>
+            <a href="https://salon.brilliance.mn/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Book a treatment</a>
+          </motion.div>
+          <motion.ul {...fadeIn(2)} className="mt-12 flex flex-wrap gap-x-6 gap-y-2 border-t border-espresso/10 pt-6 font-serif text-[17px] text-charcoal">
+            <li>Dr. med. Schrammek</li><li>Spa Treatment</li><li>GENEREX</li><li>Hyuna Beauty</li>
+          </motion.ul>
+        </motion.div>
+
+        <div className="relative mx-auto w-[80%] max-w-[500px] md:col-span-5 md:col-start-8 md:w-full">
+          <motion.div
+            className="relative aspect-[3/4] overflow-hidden rounded-t-[999px] bg-blush-2 shadow-[0_50px_90px_-40px_rgba(196,112,108,.55)]"
+            initial={reduce ? false : { opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.6, ease: EASE, delay: 0.7 }}
+          >
+            <motion.div className="absolute -inset-y-[8%] inset-x-0" style={reduce ? undefined : { y: imgY }}>
+              <Image src="/img/lifestyle-exo-moist-essence.webp" alt="Spa Treatment EXO Moist Essence серум" fill priority sizes="(max-width: 768px) 80vw, 40vw" className="object-cover object-[50%_62%]" />
+            </motion.div>
+          </motion.div>
+          <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-t-[999px] border border-rose/30" />
+          {FLOATERS.map((f) => (
+            <motion.div
+              key={f.name}
+              className={`absolute z-10 w-[40%] max-w-[180px] ${f.pos}`}
+              initial={reduce ? false : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: EASE, delay: f.delay }}
+            >
+              <motion.div
+                className="bg-white p-3 pb-4 shadow-[0_24px_50px_-24px_rgba(58,44,46,.35)]"
+                animate={reduce ? undefined : { y: f.drift }}
+                transition={{ duration: 5, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+              >
+                <span className="relative block aspect-square"><Image src={f.src} alt={f.name} fill sizes="180px" className="object-contain" /></span>
+                <span className="eyebrow mt-2 block text-[8.5px] text-rose">{f.brand}</span>
+                <span className="mt-0.5 block font-serif text-[15px] leading-tight">{f.name}</span>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-
-      <motion.div style={reduce ? undefined : { y: copyY, opacity: fade }} className="wrap relative flex h-full flex-col items-center justify-center pb-[14svh] pt-24 text-center">
-        <motion.div {...fadeIn(0.9)} className="text-champagne">
-          <Ornament width={96} />
-        </motion.div>
-        <motion.p {...fadeIn(1)} className="eyebrow mt-6 text-[10px] tracking-[0.6em] text-champagne/90">
-          Brilliance · Ulaanbaatar
-        </motion.p>
-        <h1 id="hero-title" className="serif-display mt-8 text-[clamp(46px,7.4vw,124px)] leading-[0.95]">
-          <Lines immediate delay={1.1} lines={["A world of beauty.", <em key="c" className="text-champagne">Curated for you.</em>]} />
-        </h1>
-        <motion.p {...fadeIn(1.6)} className="mt-8 font-serif text-[clamp(19px,1.6vw,24px)] italic text-ivory/85">
-          Where science meets the art of beauty.
-        </motion.p>
-        <motion.p {...fadeIn(1.7)} className="mt-3 max-w-[540px] text-[14px] leading-relaxed text-ivory/60">
-          Exceptional skincare, professional treatments and beauty rituals from Germany, Japan and Korea.
-        </motion.p>
-        <motion.div {...fadeIn(1.9)} className="mt-11 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
-          <a href="#experiences" className="btn btn-light" data-magnetic>Explore the experience</a>
-          <a href="#world" className="eyebrow link-line text-champagne">Discover our world</a>
-        </motion.div>
-      </motion.div>
-
-      <motion.a
-        href="#story"
-        aria-label="Scroll to story"
-        className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3 text-champagne/70"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.4, duration: 1 }}
-      >
-        <span className="eyebrow text-[8.5px]">Scroll</span>
-        <span className="cue relative h-10 w-px overflow-hidden bg-champagne/20" />
-      </motion.a>
     </section>
   );
 }
